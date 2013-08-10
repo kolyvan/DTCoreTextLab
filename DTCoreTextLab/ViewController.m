@@ -50,9 +50,16 @@
                               DTProcessCustomHTMLAttributes : @(NO),
                               };
     
-    NSAttributedString *string = [[NSAttributedString alloc] initWithHTMLData:data
-                                                                      options:options
-                                                           documentAttributes:NULL];
+    NSAttributedString *string;
+    
+    @autoreleasepool {
+        
+    
+        string = [[NSAttributedString alloc] initWithHTMLData:data
+                                                      options:options
+                                           documentAttributes:NULL];
+    }
+    
     
     return string;
 }
@@ -86,10 +93,11 @@
             const NSTimeInterval ts1 = [NSDate timeIntervalSinceReferenceDate];
             
             string = [ViewController mkString:data imageSize:imageSize baseURL:[NSURL fileURLWithPath:path]];
-            
+                
             const NSTimeInterval ts2 = [NSDate timeIntervalSinceReferenceDate];
             NSLog(@"%02d. completed in %.3fs speed: %.1f",
                   i, ts2 - ts1, (CGFloat)string.length / (CGFloat)(ts2 - ts1) );
+             
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
