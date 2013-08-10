@@ -11,14 +11,12 @@
 #import "NSAttributedString+HTML.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController {
     
     DTAttributedTextView        *_textView;
     UIActivityIndicatorView     *_activityIndicatorView;
-
 }
 
 - (id) init
@@ -33,40 +31,28 @@
 {
     const CGRect frame = [[UIScreen mainScreen] applicationFrame];
     self.view = [[UIView alloc] initWithFrame:frame];
-    self.view.backgroundColor = [UIColor whiteColor];    
-    
+    self.view.backgroundColor = [UIColor whiteColor];        
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    
+    [super viewWillAppear:animated];    
     [self prepareHTMLView];
 }
 
-+ (NSAttributedString *) loadHTML:(CGSize)imageSize
-{
-    
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"content-0009" ofType:@"xhtml"];
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"content-0011" ofType:@"xhtml"];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"content-0017" ofType:@"xhtml"];
-    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
-    
++ (NSAttributedString *) mkString:(NSData *)data
+                        imageSize:(CGSize)imageSize
+                          baseURL:(NSURL *)baseURL
+{   
     NSDictionary *options = @{
                               DTMaxImageSize          : [NSValue valueWithCGSize:imageSize],
-                              NSBaseURLDocumentOption : [NSURL fileURLWithPath:path],
+                              NSBaseURLDocumentOption : baseURL,
                               DTProcessCustomHTMLAttributes : @(NO),
                               };
-    
-    NSLog(@"initializing the attribute string ..");
-    NSDate *timestamp = [NSDate date];
     
     NSAttributedString *string = [[NSAttributedString alloc] initWithHTMLData:data
                                                                       options:options
                                                            documentAttributes:NULL];
-    
-    NSLog(@"complete in %.3f sec.", -[timestamp timeIntervalSinceNow]);
     
     return string;
 }
@@ -86,8 +72,25 @@
     __weak __typeof(self) weakSelf = self;
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    
-        NSAttributedString *string = [ViewController loadHTML:imageSize];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"xhtml"];
+        NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+        NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSAttributedString *string;
+        
+        NSLog(@"loading html %d bytes", data.length);
+        
+        for (NSUInteger i = 0; i < 40; ++i) {
+                    
+            const NSTimeInterval ts1 = [NSDate timeIntervalSinceReferenceDate];
+            
+            string = [ViewController mkString:data imageSize:imageSize baseURL:[NSURL fileURLWithPath:path]];
+            
+            const NSTimeInterval ts2 = [NSDate timeIntervalSinceReferenceDate];
+            NSLog(@"%02d. completed in %.3fs speed: %.1f",
+                  i, ts2 - ts1, (CGFloat)string.length / (CGFloat)(ts2 - ts1) );
+        }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             

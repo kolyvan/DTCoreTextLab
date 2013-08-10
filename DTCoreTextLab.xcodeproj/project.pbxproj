@@ -20,11 +20,10 @@
 		871575C8178E5B3700A78D72 /* libDTCoreText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575BD178E5B1000A78D72 /* libDTCoreText.a */; };
 		871575CC178E5DAD00A78D72 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575CB178E5DAD00A78D72 /* CoreText.framework */; };
 		871575CE178E5DBB00A78D72 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575CD178E5DBB00A78D72 /* QuartzCore.framework */; };
-		871575D1178E5EE500A78D72 /* content-0009.xhtml in Resources */ = {isa = PBXBuildFile; fileRef = 871575D0178E5EE500A78D72 /* content-0009.xhtml */; };
 		871575D3178E5F5C00A78D72 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575D2178E5F5C00A78D72 /* ImageIO.framework */; };
 		871575D5178E5F7600A78D72 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575D4178E5F7600A78D72 /* libxml2.dylib */; };
-		871575D8178E5FA200A78D72 /* content-0011.xhtml in Resources */ = {isa = PBXBuildFile; fileRef = 871575D6178E5FA200A78D72 /* content-0011.xhtml */; };
-		871575D9178E5FA200A78D72 /* content-0017.xhtml in Resources */ = {isa = PBXBuildFile; fileRef = 871575D7178E5FA200A78D72 /* content-0017.xhtml */; };
+		87AFDD2B17B60EE20086CF3B /* test.xhtml in Resources */ = {isa = PBXBuildFile; fileRef = 87AFDD2A17B60EE20086CF3B /* test.xhtml */; };
+		87AFDD2D17B60F650086CF3B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 87AFDD2C17B60F650086CF3B /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,11 +105,10 @@
 		871575CA178E5D3800A78D72 /* DTWeakSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTWeakSupport.h; path = external/DTWeakSupport.h; sourceTree = "<group>"; };
 		871575CB178E5DAD00A78D72 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		871575CD178E5DBB00A78D72 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		871575D0178E5EE500A78D72 /* content-0009.xhtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "content-0009.xhtml"; path = "resources/content-0009.xhtml"; sourceTree = "<group>"; };
 		871575D2178E5F5C00A78D72 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		871575D4178E5F7600A78D72 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		871575D6178E5FA200A78D72 /* content-0011.xhtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "content-0011.xhtml"; path = "resources/content-0011.xhtml"; sourceTree = "<group>"; };
-		871575D7178E5FA200A78D72 /* content-0017.xhtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "content-0017.xhtml"; path = "resources/content-0017.xhtml"; sourceTree = "<group>"; };
+		87AFDD2A17B60EE20086CF3B /* test.xhtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test.xhtml; path = resources/test.xhtml; sourceTree = "<group>"; };
+		87AFDD2C17B60F650086CF3B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = resources/style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,9 +223,8 @@
 		871575CF178E5DCA00A78D72 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				871575D6178E5FA200A78D72 /* content-0011.xhtml */,
-				871575D7178E5FA200A78D72 /* content-0017.xhtml */,
-				871575D0178E5EE500A78D72 /* content-0009.xhtml */,
+				87AFDD2C17B60F650086CF3B /* style.css */,
+				87AFDD2A17B60EE20086CF3B /* test.xhtml */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -346,9 +343,8 @@
 				87157592178E598300A78D72 /* Default.png in Resources */,
 				87157594178E598300A78D72 /* Default@2x.png in Resources */,
 				87157596178E598300A78D72 /* Default-568h@2x.png in Resources */,
-				871575D1178E5EE500A78D72 /* content-0009.xhtml in Resources */,
-				871575D8178E5FA200A78D72 /* content-0011.xhtml in Resources */,
-				871575D9178E5FA200A78D72 /* content-0017.xhtml in Resources */,
+				87AFDD2B17B60EE20086CF3B /* test.xhtml in Resources */,
+				87AFDD2D17B60F650086CF3B /* style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
