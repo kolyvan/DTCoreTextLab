@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "DTAttributedTextView.h"
 #import "NSAttributedString+HTML.h"
+#import "DTCoreTextParagraphStyle.h"
+
 
 @interface ViewController ()
 @end
@@ -23,6 +25,7 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
+       
     }
     return self;
 }
@@ -48,18 +51,20 @@
                               DTMaxImageSize          : [NSValue valueWithCGSize:imageSize],
                               NSBaseURLDocumentOption : baseURL,
                               DTProcessCustomHTMLAttributes : @(NO),
+                              //DTDefaultFontSize : @(16.0),
+                              // DTUseiOS6Attributes : @(YES),
                               };
     
     NSAttributedString *string;
     
-    @autoreleasepool {
+    @autoreleasepool
+    {
         
     
         string = [[NSAttributedString alloc] initWithHTMLData:data
                                                       options:options
                                            documentAttributes:NULL];
     }
-    
     
     return string;
 }
@@ -88,8 +93,9 @@
         
         NSLog(@"loading html %d bytes", data.length);
         
-        for (NSUInteger i = 0; i < 40; ++i) {
-                    
+        NSUInteger i = 0;
+        for (i = 0; i < 40; ++i)
+        {                    
             const NSTimeInterval ts1 = [NSDate timeIntervalSinceReferenceDate];
             
             string = [ViewController mkString:data imageSize:imageSize baseURL:[NSURL fileURLWithPath:path]];
@@ -97,9 +103,10 @@
             const NSTimeInterval ts2 = [NSDate timeIntervalSinceReferenceDate];
             NSLog(@"%02d. completed in %.3fs speed: %.1f",
                   i, ts2 - ts1, (CGFloat)string.length / (CGFloat)(ts2 - ts1) );
-             
         }
         
+        //[ViewController dumpString:string];
+                
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [weakSelf didLoadHTML:string];
@@ -120,6 +127,27 @@
     
     [_activityIndicatorView removeFromSuperview];
     _activityIndicatorView = nil;
+}
+
++ (void) dumpString:(NSAttributedString *)string
+{
+    //NSLog(@"")
+    NSMutableString *dumpOutput = [[NSMutableString alloc] init];
+    NSDictionary *attributes = nil;
+    NSRange effectiveRange = NSMakeRange(0, 0);
+    
+    while ((attributes = [string attributesAtIndex:effectiveRange.location effectiveRange:&effectiveRange]))
+    {
+        [dumpOutput appendFormat:@"Range: (%d, %d), %@\n\n", effectiveRange.location, effectiveRange.length, attributes];
+        effectiveRange.location += effectiveRange.length;
+        
+        if (effectiveRange.location >= [string length])
+        {
+            break;
+        }
+    }
+    
+    NSLog(@"%@", dumpOutput);
 }
 
 @end

@@ -23,7 +23,7 @@
 		871575D3178E5F5C00A78D72 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575D2178E5F5C00A78D72 /* ImageIO.framework */; };
 		871575D5178E5F7600A78D72 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 871575D4178E5F7600A78D72 /* libxml2.dylib */; };
 		87AFDD2B17B60EE20086CF3B /* test.xhtml in Resources */ = {isa = PBXBuildFile; fileRef = 87AFDD2A17B60EE20086CF3B /* test.xhtml */; };
-		87AFDD2D17B60F650086CF3B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 87AFDD2C17B60F650086CF3B /* style.css */; };
+		87AFDD2D17B60F650086CF3B /* test.css in Resources */ = {isa = PBXBuildFile; fileRef = 87AFDD2C17B60F650086CF3B /* test.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,7 @@
 		871575D2178E5F5C00A78D72 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		871575D4178E5F7600A78D72 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		87AFDD2A17B60EE20086CF3B /* test.xhtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test.xhtml; path = resources/test.xhtml; sourceTree = "<group>"; };
-		87AFDD2C17B60F650086CF3B /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = resources/style.css; sourceTree = "<group>"; };
+		87AFDD2C17B60F650086CF3B /* test.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = test.css; path = resources/test.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +223,7 @@
 		871575CF178E5DCA00A78D72 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				87AFDD2C17B60F650086CF3B /* style.css */,
+				87AFDD2C17B60F650086CF3B /* test.css */,
 				87AFDD2A17B60EE20086CF3B /* test.xhtml */,
 			);
 			name = resources;
@@ -344,7 +344,7 @@
 				87157594178E598300A78D72 /* Default@2x.png in Resources */,
 				87157596178E598300A78D72 /* Default-568h@2x.png in Resources */,
 				87AFDD2B17B60EE20086CF3B /* test.xhtml in Resources */,
-				87AFDD2D17B60F650086CF3B /* style.css in Resources */,
+				87AFDD2D17B60F650086CF3B /* test.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
